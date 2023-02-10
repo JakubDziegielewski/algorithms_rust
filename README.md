@@ -1,4 +1,4 @@
-# Algotihms in Rust
+# Algorithms in Rust
 
 My implementation of several algorithms using Rust.
 
