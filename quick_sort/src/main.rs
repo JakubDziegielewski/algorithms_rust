@@ -1,20 +1,15 @@
-use std::vec;
-
 fn main() {
-    let mut a: &mut [i32] = &mut [
-        0, 1, -2, 10, 11, 0, -10, 92, 2110, 1, -73, 222, 120, 920, 0
-    ];
+    let mut a: &mut [i32] = &mut [0, 1, -2, 10, 11, 0, -10, 92, 2110, 1, -73, 222, 120, 920, 0];
 
     let len = a.len();
     let mut b: Vec<i32> = vec![0; len];
     b.clone_from_slice(&a[..]);
     quick_sort(&mut a, 0, len as i32 - 1);
-    quick_sort_with_shorter_slicec(&mut b, 0, len as i32 -1);
+    quick_sort_with_shorter_slicec(&mut b, 0, len as i32 - 1);
     assert_eq!(a, b);
 
     println!("{:?}", a)
 }
-/* */
 
 fn quick_sort(mut a: &mut [i32], l: i32, r: i32) {
     if l >= r {
@@ -39,6 +34,7 @@ fn quick_sort_with_shorter_slicec(a: &mut [i32], l: i32, r: i32) {
     if l >= r {
         return;
     }
+    //recursive methods are only given the slice, that they are supposed to sort
 
     let mut iter = 0;
     for i in 1..(r - l + 1) {
