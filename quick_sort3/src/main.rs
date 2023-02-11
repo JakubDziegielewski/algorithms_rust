@@ -1,13 +1,12 @@
 fn main() {
-    let a: &mut [i32] = &mut [5,4,3,2,1];
-
+    let a: &mut [i32] = &mut [4, 4, 3, 3, 2, 1];
     let len = a.len();
     let b: &mut Vec<i32> = &mut vec![0; len];
     b.clone_from_slice(&a[..]);
     quick_sort3(&mut a[..], 0, len as i32 - 1);
     quick_sort3_with_shorter_slicec(&mut b[..]);
     assert_eq!(a, b);
-    println!("{:?}", a);
+    println!("{:?}", b);
 }
 
 fn quick_sort3(mut a: &mut [i32], l: i32, r: i32) {
@@ -19,14 +18,14 @@ fn quick_sort3(mut a: &mut [i32], l: i32, r: i32) {
     let mut j = l;
     let mut k = l;
 
-        for i in l + 1..r + 1 {
+    for i in l + 1..r + 1 {
         if a[i as usize] < a[l as usize] {
             j = j + 1;
             k = k + 1;
-            (a[i as usize], a[j as usize], a[k as usize]) = (a[k as usize], a[i as usize], a[j as usize]);
-            
-        }
-        else if a[i as usize] == a[l as usize] {
+            (a[i as usize], a[k as usize]) = (a[k as usize], a[i as usize]);
+            (a[j as usize], a[k as usize]) = (a[k as usize], a[j as usize]);
+    
+        } else if a[i as usize] == a[l as usize] {
             k = k + 1;
             (a[i as usize], a[k as usize]) = (a[k as usize], a[i as usize])
         }
@@ -50,9 +49,9 @@ fn quick_sort3_with_shorter_slicec(a: &mut [i32]) {
         if a[i as usize] < a[0] {
             j = j + 1;
             k = k + 1;
-            (a[i as usize], a[j as usize], a[k as usize]) = (a[k as usize], a[i as usize], a[j as usize]);
-        }
-        else if a[i as usize] == a[0]{
+            (a[i as usize], a[k as usize]) = (a[k as usize], a[i as usize]);
+            (a[j as usize], a[k as usize]) = (a[k as usize], a[j as usize]);
+        } else if a[i as usize] == a[0] {
             k = k + 1;
             (a[i as usize], a[k as usize]) = (a[k as usize], a[i as usize]);
         }
