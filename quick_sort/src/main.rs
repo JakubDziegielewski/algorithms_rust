@@ -1,14 +1,13 @@
 fn main() {
-    let mut a: &mut [i32] = &mut [1, 2, 4, 3, 1, 1, 8, -1];
+    let a: &mut [i32] = &mut [2, 1, 0, 2, 4, 3];
 
     let len = a.len();
-    let mut b: Vec<i32> = vec![0; len];
+    let b: &mut Vec<i32> = &mut vec![0; len];
     b.clone_from_slice(&a[..]);
-    quick_sort(&mut a, 0, len as i32 - 1);
-    quick_sort_with_shorter_slicec(&mut b);
+    quick_sort(&mut a[..], 0, len as i32 - 1);
+    quick_sort_with_shorter_slicec(&mut b[..]);
     assert_eq!(a, b);
-
-    println!("{:?}", a)
+    println!("{:?}", a);
 }
 
 fn quick_sort(mut a: &mut [i32], l: i32, r: i32) {
