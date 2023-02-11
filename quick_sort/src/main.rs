@@ -31,11 +31,12 @@ fn quick_sort(mut a: &mut [i32], l: i32, r: i32) {
     quick_sort(&mut a, j + 1, r);
 }
 fn quick_sort_with_shorter_slicec(a: &mut [i32]) {
-    if a.len() <= 0 {
+    let len = a.len();
+    if len <= 0 {
         return;
     }
     //recursive methods are only given the slice, that they are supposed to sort
-    let len = a.len();
+    
     let mut j = 0;
     for i in 1..len {
         if a[i as usize] <= a[0] {
