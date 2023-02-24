@@ -5,7 +5,7 @@ My implementation of several algorithms using Rust.
 ## Counting sort
 Method of sorting non-negative integers smaller than given N; O(n)
 
-##Merge sort
+## Merge sort
 Implementation of merge sort; O(n log(n))
 
 ## Polynomial multiplication
@@ -14,3 +14,12 @@ Implementation of merge sort; O(n log(n))
 ## Quick sort
 
 3 implementations of quick sort algorithm; O(n log(n))
+
+## Quick sort 3
+
+Impoved version of quick sort
+
+## Alignment Game
+
+
+## Parenthesis
